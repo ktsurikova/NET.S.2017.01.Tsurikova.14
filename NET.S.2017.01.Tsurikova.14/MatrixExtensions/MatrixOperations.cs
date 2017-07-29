@@ -82,6 +82,33 @@ namespace MatrixExtensions
             return result;
         }
 
+        public static SymmetricMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
+        {
+            if (lhs.Dimension != rhs.Dimension)
+                throw new InvalidOperationException("only matrices with the same size can be added");
+
+            SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Dimension);
+
+            try
+            {
+                for (int i = 1; i <= result.Dimension; i++)
+                {
+                    for (int j = 1; j <= result.Dimension; j++)
+                    {
+                        result[i, j] = (dynamic)lhs[i, j] + rhs[i, j];
+                    }
+                }
+            }
+            catch (RuntimeBinderException e)
+            {
+                throw new InvalidOperationException("elements of matrix can't be added", e);
+            }
+
+            return result;
+        }
+
+        public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs) => Add(rhs, lhs);
+
 
     }
 }

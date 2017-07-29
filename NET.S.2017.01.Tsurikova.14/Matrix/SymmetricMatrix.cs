@@ -38,7 +38,9 @@ namespace Matrix
 
         private int GetIndex(int i, int j)
         {
-            return Math.Max(i - 1, j - 1) * (Math.Max(i - 1, j - 1) + 1) / 2 + Math.Min(i - 1, j - 1);
+            if (i < j)
+                return (i - 1) * Dimension - (i - 1) * i / 2 + j - 1;
+            return (j - 1) * Dimension - (j - 1) * j / 2 + i - 1;
         }
     }
 }
