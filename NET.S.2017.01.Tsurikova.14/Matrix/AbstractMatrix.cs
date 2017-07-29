@@ -8,11 +8,23 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
+    /// <summary>
+    /// class providing data for change element event
+    /// </summary>
+    /// <typeparam name="T">type</typeparam>
     public class ChangeElementEventArgs<T> : EventArgs
     {
         public int Row { get; }
         public int Column { get; }
+
+        /// <summary>
+        /// old value
+        /// </summary>
         public T Old { get; }
+
+        /// <summary>
+        /// new value
+        /// </summary>
         public T New { get; }
 
         public ChangeElementEventArgs(int row, int column, T oldElement, T newElement)
@@ -24,9 +36,17 @@ namespace Matrix
         }
     }
 
+    /// <summary>
+    /// abstaract class for matrices
+    /// </summary>
+    /// <typeparam name="T">type</typeparam>
     public abstract class AbstractMatrix<T>
     {
         private int dimension;
+
+        /// <summary>
+        /// dimension of matrix
+        /// </summary>
         public int Dimension
         {
             get { return dimension; }
@@ -38,12 +58,19 @@ namespace Matrix
 
         }
 
-        protected void BasicCheckPosition(int i, int j)
-        {
-            if ((i <= 0) || (i > Dimension) || (j <= 0) || (j > Dimension))
-                throw new ArgumentException($"invalid indexs of position");
-        }
+        /// <summary>
+        /// event when element changes
+        /// </summary>
+        public event EventHandler<ChangeElementEventArgs<T>> ChangeElement = delegate { };
 
+        /// <summary>
+        /// Provides access to items by indexes
+        /// INDEXING FROM 1!
+        /// </summary>
+        /// <param name="i">row</param>
+        /// <param name="j">column</param>
+        /// <returns>element</returns>
+        /// <exception cref="ArgumentException">throws when indexes are wrong</exception>
         public T this[int i, int j]
         {
             get
@@ -58,6 +85,12 @@ namespace Matrix
             }
         }
 
+        protected void BasicCheckPosition(int i, int j)
+        {
+            if ((i <= 0) || (i > Dimension) || (j <= 0) || (j > Dimension))
+                throw new ArgumentException($"invalid indexs of position");
+        }
+
         protected abstract T GetElement(int i, int j);
         protected abstract void SetElement(int i, int j, T value);
 
@@ -66,8 +99,5 @@ namespace Matrix
             EventHandler<ChangeElementEventArgs<T>> temp = ChangeElement;
             temp?.Invoke(this, args);
         }
-
-        public event EventHandler<ChangeElementEventArgs<T>> ChangeElement = delegate { };
-
     }
 }

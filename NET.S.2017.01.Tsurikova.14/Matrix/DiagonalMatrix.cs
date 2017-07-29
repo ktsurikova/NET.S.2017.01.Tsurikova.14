@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
+    /// <summary>
+    /// class for working with diagonal matrices
+    /// </summary>
+    /// <typeparam name="T">type</typeparam>
     public class DiagonalMatrix<T> : AbstractMatrix<T>
     {
         private T[] elements;
 
+        /// <summary>
+        /// initializes a new instance of matrix with the specified dimension
+        /// </summary>
+        /// <param name="dimension">dimension of matrix</param>
         public DiagonalMatrix(int dimension)
         {
             Dimension = dimension;
             elements = new T[dimension];
         }
 
+        /// <summary>
+        /// initializes a new instance of matrix with the specified dimension and elements
+        /// </summary>
+        /// <param name="dimension">dimension of matrix</param>
+        /// <param name="elements">elements of matrix</param>
         public DiagonalMatrix(int dimension, T[] elements) : this(dimension)
         {
             for (int i = 0; i < this.elements.Length && i < elements.Length; i++)

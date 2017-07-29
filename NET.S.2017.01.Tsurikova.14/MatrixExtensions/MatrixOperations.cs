@@ -8,8 +8,19 @@ using Microsoft.CSharp.RuntimeBinder;
 
 namespace MatrixExtensions
 {
+    /// <summary>
+    /// class provding operations with matrices
+    /// </summary>
     public static class MatrixOperations
     {
+        /// <summary>
+        /// add two any type of matrices
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="lhs">first matrix</param>
+        /// <param name="rhs">second matrix</param>
+        /// <returns>new square matrix</returns>
+        /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SquareMatrix<T> Add<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
         {
             if (lhs.Dimension != rhs.Dimension)
@@ -35,6 +46,14 @@ namespace MatrixExtensions
             return result;
         }
 
+        /// <summary>
+        /// add two diagonal matrices
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="lhs">first matrix</param>
+        /// <param name="rhs">second matrix</param>
+        /// <returns>new diagonal matrix</returns>
+        /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static DiagonalMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, DiagonalMatrix<T> rhs)
         {
             if (lhs.Dimension != rhs.Dimension)
@@ -57,6 +76,14 @@ namespace MatrixExtensions
             return result;
         }
 
+        /// <summary>
+        /// add two symmetric matrices
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="lhs">first matrix</param>
+        /// <param name="rhs">second matrix</param>
+        /// <returns>new symmetric matrix</returns>
+        /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
             if (lhs.Dimension != rhs.Dimension)
@@ -82,6 +109,14 @@ namespace MatrixExtensions
             return result;
         }
 
+        /// <summary>
+        /// add diagonal and symmetric matrices
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="lhs">first matrix</param>
+        /// <param name="rhs">second matrix</param>
+        /// <returns>new symmetric matrix</returns>
+        /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SymmetricMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
             if (lhs.Dimension != rhs.Dimension)
@@ -107,8 +142,15 @@ namespace MatrixExtensions
             return result;
         }
 
+        /// <summary>
+        /// add symmetric and diagonal matrices
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="lhs">first matrix</param>
+        /// <param name="rhs">second matrix</param>
+        /// <returns>new symmetric matrix</returns>
+        /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs) => Add(rhs, lhs);
-
 
     }
 }
