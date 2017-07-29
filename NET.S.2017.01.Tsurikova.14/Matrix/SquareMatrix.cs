@@ -15,21 +15,21 @@ namespace Matrix
         private T[] elements;
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension
+        /// initializes a new instance of matrix with the specified size
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
-        public SquareMatrix(int dimension)
+        /// <param name="size">size of matrix</param>
+        public SquareMatrix(int size)
         {
-            Dimension = dimension;
-            elements = new T[dimension * dimension];
+            Size = size;
+            elements = new T[size * size];
         }
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension and elements
+        /// initializes a new instance of matrix with the specified size and elements
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
+        /// <param name="size">size of matrix</param>
         /// <param name="elements">elements of matrix</param>
-        public SquareMatrix(int dimension, T[] elements) : this(dimension)
+        public SquareMatrix(int size, T[] elements) : this(size)
         {
             for (int i = 0; i < this.elements.Length && i < elements.Length; i++)
             {
@@ -40,13 +40,13 @@ namespace Matrix
         protected override T GetElement(int i, int j)
         {
             BasicCheckPosition(i, j);
-            return elements[Dimension * (i - 1) + j - 1];
+            return elements[Size * (i - 1) + j - 1];
         }
 
         protected override void SetElement(int i, int j, T value)
         {
             BasicCheckPosition(i, j);
-            elements[Dimension * (i - 1) + j - 1] = value;
+            elements[Size * (i - 1) + j - 1] = value;
         }
 
     }

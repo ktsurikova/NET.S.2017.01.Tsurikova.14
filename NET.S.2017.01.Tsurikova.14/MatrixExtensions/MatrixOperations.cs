@@ -23,16 +23,16 @@ namespace MatrixExtensions
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SquareMatrix<T> Add<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
         {
-            if (lhs.Dimension != rhs.Dimension)
+            if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
-            SquareMatrix<T> result = new SquareMatrix<T>(lhs.Dimension);
+            SquareMatrix<T> result = new SquareMatrix<T>(lhs.Size);
 
             try
             {
-                for (int i = 1; i <= result.Dimension; i++)
+                for (int i = 1; i <= result.Size; i++)
                 {
-                    for (int j = 1; j <= result.Dimension; j++)
+                    for (int j = 1; j <= result.Size; j++)
                     {
                         result[i, j] = (dynamic)lhs[i, j] + rhs[i, j];
                     }
@@ -56,14 +56,14 @@ namespace MatrixExtensions
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static DiagonalMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, DiagonalMatrix<T> rhs)
         {
-            if (lhs.Dimension != rhs.Dimension)
+            if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
-            DiagonalMatrix<T> result = new DiagonalMatrix<T>(lhs.Dimension);
+            DiagonalMatrix<T> result = new DiagonalMatrix<T>(lhs.Size);
 
             try
             {
-                for (int i = 1; i <= result.Dimension; i++)
+                for (int i = 1; i <= result.Size; i++)
                 {
                     result[i, i] = (dynamic)lhs[i, i] + rhs[i, i];
                 }
@@ -86,16 +86,16 @@ namespace MatrixExtensions
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
-            if (lhs.Dimension != rhs.Dimension)
+            if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
-            SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Dimension);
+            SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Size);
 
             try
             {
-                for (int i = 1; i <= result.Dimension; i++)
+                for (int i = 1; i <= result.Size; i++)
                 {
-                    for (int j = 1; j <= result.Dimension; j++)
+                    for (int j = 1; j <= result.Size; j++)
                     {
                         result[i, j] = (dynamic)lhs[i, j] + rhs[i, j];
                     }
@@ -119,16 +119,16 @@ namespace MatrixExtensions
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         public static SymmetricMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
-            if (lhs.Dimension != rhs.Dimension)
+            if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
-            SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Dimension);
+            SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Size);
 
             try
             {
-                for (int i = 1; i <= result.Dimension; i++)
+                for (int i = 1; i <= result.Size; i++)
                 {
-                    for (int j = 1; j <= result.Dimension; j++)
+                    for (int j = 1; j <= result.Size; j++)
                     {
                         result[i, j] = (dynamic)lhs[i, j] + rhs[i, j];
                     }

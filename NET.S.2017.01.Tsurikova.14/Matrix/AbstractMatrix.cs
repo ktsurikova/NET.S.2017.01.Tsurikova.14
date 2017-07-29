@@ -42,18 +42,18 @@ namespace Matrix
     /// <typeparam name="T">type</typeparam>
     public abstract class AbstractMatrix<T>
     {
-        private int dimension;
+        private int size;
 
         /// <summary>
-        /// dimension of matrix
+        /// size of matrix
         /// </summary>
-        public int Dimension
+        public int Size
         {
-            get { return dimension; }
+            get { return size; }
             protected set
             {
-                if (value < 0) throw new ArgumentException($"{nameof(Dimension)} can't be negative");
-                dimension = value;
+                if (value < 0) throw new ArgumentException($"{nameof(Size)} can't be negative");
+                size = value;
             }
 
         }
@@ -87,7 +87,7 @@ namespace Matrix
 
         protected void BasicCheckPosition(int i, int j)
         {
-            if ((i <= 0) || (i > Dimension) || (j <= 0) || (j > Dimension))
+            if ((i <= 0) || (i > Size) || (j <= 0) || (j > Size))
                 throw new ArgumentException($"invalid indexs of position");
         }
 

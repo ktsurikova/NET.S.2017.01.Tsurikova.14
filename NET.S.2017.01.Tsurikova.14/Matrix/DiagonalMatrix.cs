@@ -15,21 +15,21 @@ namespace Matrix
         private T[] elements;
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension
+        /// initializes a new instance of matrix with the specified size
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
-        public DiagonalMatrix(int dimension)
+        /// <param name="size">size of matrix</param>
+        public DiagonalMatrix(int size)
         {
-            Dimension = dimension;
-            elements = new T[dimension];
+            Size = size;
+            elements = new T[size];
         }
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension and elements
+        /// initializes a new instance of matrix with the specified size and elements
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
+        /// <param name="size">size of matrix</param>
         /// <param name="elements">elements of matrix</param>
-        public DiagonalMatrix(int dimension, T[] elements) : this(dimension)
+        public DiagonalMatrix(int size, T[] elements) : this(size)
         {
             for (int i = 0; i < this.elements.Length && i < elements.Length; i++)
             {

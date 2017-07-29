@@ -15,21 +15,21 @@ namespace Matrix
         private T[] elements;
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension
+        /// initializes a new instance of matrix with the specified size
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
-        public SymmetricMatrix(int dimension)
+        /// <param name="size">size of matrix</param>
+        public SymmetricMatrix(int size)
         {
-            Dimension = dimension;
-            elements = new T[Dimension * (Dimension + 1) / 2];
+            Size = size;
+            elements = new T[Size * (Size + 1) / 2];
         }
 
         /// <summary>
-        /// initializes a new instance of matrix with the specified dimension and elements
+        /// initializes a new instance of matrix with the specified size and elements
         /// </summary>
-        /// <param name="dimension">dimension of matrix</param>
+        /// <param name="size">size of matrix</param>
         /// <param name="elements">elements of matrix</param>
-        public SymmetricMatrix(int dimension, T[] elements) : this(dimension)
+        public SymmetricMatrix(int size, T[] elements) : this(size)
         {
             for (int i = 0; i < this.elements.Length && i < elements.Length; i++)
             {
@@ -52,8 +52,8 @@ namespace Matrix
         private int GetIndex(int i, int j)
         {
             if (i < j)
-                return (i - 1) * Dimension - (i - 1) * i / 2 + j - 1;
-            return (j - 1) * Dimension - (j - 1) * j / 2 + i - 1;
+                return (i - 1) * Size - (i - 1) * i / 2 + j - 1;
+            return (j - 1) * Size - (j - 1) * j / 2 + i - 1;
         }
     }
 }

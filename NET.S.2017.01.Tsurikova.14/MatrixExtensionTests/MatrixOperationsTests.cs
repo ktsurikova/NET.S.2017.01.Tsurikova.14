@@ -20,9 +20,9 @@ namespace MatrixExtensionTests
             DiagonalMatrix<int> matrixR = new DiagonalMatrix<int>(3, new[] { 1, 2, 3 });
             DiagonalMatrix<int> matrixE = matrix1.Add(matrix2);
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -37,9 +37,9 @@ namespace MatrixExtensionTests
             SymmetricMatrix<int> matrixE = matrix1.Add(matrix2);
             SymmetricMatrix<int> matrixR = new SymmetricMatrix<int>(3, new[] { 2, 1, 1, 3, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -54,9 +54,9 @@ namespace MatrixExtensionTests
             SymmetricMatrix<int> matrixE = matrix2.Add(matrix1);
             SymmetricMatrix<int> matrixR = new SymmetricMatrix<int>(3, new[] { 2, 1, 1, 3, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -71,9 +71,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix2.Add(matrix1);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 1, 1, 1, 3, 2, 1, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -88,9 +88,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix2.Add(matrix1);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 1, 1, 1, 3, 2, 1, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -105,9 +105,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix2.Add(matrix1);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 1, 1, 1, 3, 2, 1, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -122,9 +122,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix1.Add(matrix2);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 1, 1, 1, 3, 2, 1, 2, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -139,9 +139,9 @@ namespace MatrixExtensionTests
             SymmetricMatrix<int> matrixE = matrix2.Add(matrix1);
             SymmetricMatrix<int> matrixR = new SymmetricMatrix<int>(3, new[] { 2, 2, 2, 3, 3, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -156,9 +156,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix2.Add(matrix1);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 2, 2, 2, 3, 3, 2, 3, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -173,9 +173,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix1.Add(matrix2);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 2, 2, 2, 3, 3, 2, 3, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -190,9 +190,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix1.Add(matrix2);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 2, 2, 2, 3, 3, 2, 3, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
@@ -207,9 +207,9 @@ namespace MatrixExtensionTests
             SquareMatrix<int> matrixE = matrix1.Add(matrix2);
             SquareMatrix<int> matrixR = new SquareMatrix<int>(3, new[] { 2, 2, 2, 2, 3, 3, 2, 3, 4 });
 
-            for (int i = 1; i <= matrixR.Dimension; i++)
+            for (int i = 1; i <= matrixR.Size; i++)
             {
-                for (int j = 1; j <= matrixR.Dimension; j++)
+                for (int j = 1; j <= matrixR.Size; j++)
                 {
                     Assert.AreEqual(matrixR[i, j], matrixE[i, j]);
                 }
