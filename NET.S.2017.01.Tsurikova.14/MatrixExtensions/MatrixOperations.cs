@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,10 @@ namespace MatrixExtensions
         /// <param name="rhs">second matrix</param>
         /// <returns>new square matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
+        /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
         public static SquareMatrix<T> Add<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
         {
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
             if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
@@ -54,8 +57,10 @@ namespace MatrixExtensions
         /// <param name="rhs">second matrix</param>
         /// <returns>new diagonal matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
+        /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
         public static DiagonalMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, DiagonalMatrix<T> rhs)
         {
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
             if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
@@ -84,8 +89,10 @@ namespace MatrixExtensions
         /// <param name="rhs">second matrix</param>
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
+        /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
         public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
             if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
@@ -117,8 +124,10 @@ namespace MatrixExtensions
         /// <param name="rhs">second matrix</param>
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
+        /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
         public static SymmetricMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
             if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
@@ -150,7 +159,12 @@ namespace MatrixExtensions
         /// <param name="rhs">second matrix</param>
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
-        public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs) => Add(rhs, lhs);
+        /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
+        public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs)
+        {
+            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
+            return Add(rhs, lhs);
+        }
 
     }
 }

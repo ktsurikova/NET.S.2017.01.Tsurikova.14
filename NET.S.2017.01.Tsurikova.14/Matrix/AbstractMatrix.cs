@@ -55,7 +55,6 @@ namespace Matrix
                 if (value < 0) throw new ArgumentException($"{nameof(Size)} can't be negative");
                 size = value;
             }
-
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace Matrix
         protected void BasicCheckPosition(int i, int j)
         {
             if ((i <= 0) || (i > Size) || (j <= 0) || (j > Size))
-                throw new ArgumentException($"invalid indexs of position");
+                throw new ArgumentException($"invalid ({i}, {j}) indexes of position");
         }
 
         protected abstract T GetElement(int i, int j);
