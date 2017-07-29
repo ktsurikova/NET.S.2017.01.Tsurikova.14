@@ -16,9 +16,9 @@ namespace Matrix
             elements = new T[dimension];
         }
 
-        public DiagonalMatrix(int dimension, T[] elements) :this(dimension)
+        public DiagonalMatrix(int dimension, T[] elements) : this(dimension)
         {
-            for (int i = 0; i < this.elements.Length; i++)
+            for (int i = 0; i < this.elements.Length && i < elements.Length; i++)
             {
                 this.elements[i] = elements[i];
             }

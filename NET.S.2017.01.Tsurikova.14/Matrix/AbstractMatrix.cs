@@ -40,7 +40,7 @@ namespace Matrix
 
         protected void BasicCheckPosition(int i, int j)
         {
-            if ((i < 0) || (i > Dimension) || (j < 0) || (j > Dimension))
+            if ((i <= 0) || (i > Dimension) || (j <= 0) || (j > Dimension))
                 throw new ArgumentException($"invalid indexs of position");
         }
 
