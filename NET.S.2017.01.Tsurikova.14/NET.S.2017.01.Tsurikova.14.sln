@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTests", "MatrixTests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixExtensionTests", "MatrixExtensionTests\MatrixExtensionTests.csproj", "{4433DD0C-B8B3-4988-85DB-B536B26BD309}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "BinarySearchTree\BinarySearchTree.csproj", "{3519E0BD-B1CE-44C7-849F-13C2CC863CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4433DD0C-B8B3-4988-85DB-B536B26BD309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4433DD0C-B8B3-4988-85DB-B536B26BD309}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4433DD0C-B8B3-4988-85DB-B536B26BD309}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3519E0BD-B1CE-44C7-849F-13C2CC863CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3519E0BD-B1CE-44C7-849F-13C2CC863CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3519E0BD-B1CE-44C7-849F-13C2CC863CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3519E0BD-B1CE-44C7-849F-13C2CC863CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
