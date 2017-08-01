@@ -16,7 +16,7 @@ namespace BinarySearchTree
         #region fields
 
         private BinaryTreeNode<T> root;
-        private readonly IComparer<T> comparer;
+        private IComparer<T> comparer;
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace BinarySearchTree
         public BinarySearchTree()
         {
             root = null;
-            comparer = Comparer<T>.Default;
+            //comparer = Comparer<T>.Default;
         }
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace BinarySearchTree
         /// <param name="otherComparer">comparer</param>
         public BinarySearchTree(IComparer<T> otherComparer)
         {
-            if (ReferenceEquals(otherComparer, null))
-                otherComparer = Comparer<T>.Default;
+            //if (ReferenceEquals(otherComparer, null))
+            //    otherComparer = Comparer<T>.Default;
             root = null;
             comparer = otherComparer;
         }
@@ -49,8 +49,8 @@ namespace BinarySearchTree
         /// <param name="otherComparer">comparer</param>
         public BinarySearchTree(Comparison<T> otherComparer)
         {
-            if (ReferenceEquals(otherComparer, null))
-                otherComparer = Comparer<T>.Default.Compare;
+            //if (ReferenceEquals(otherComparer, null))
+            //    otherComparer = Comparer<T>.Default.Compare;
             root = null;
             comparer = Comparer<T>.Create(otherComparer);
         }
@@ -82,6 +82,13 @@ namespace BinarySearchTree
             return false;
         }
 
+        private void TryComparer(T item)
+        {
+            if (item is IComparable<T> || item is IComparable)
+                comparer = Comparer<T>.Default;
+            else throw new ArgumentException($"there is no comparer");
+        }
+
         #region Add
 
         /// <summary>
@@ -92,6 +99,9 @@ namespace BinarySearchTree
         public void Add(T data)
         {
             if (ReferenceEquals(data, null)) throw new ArgumentNullException($"{nameof(data)} is null");
+
+            if (ReferenceEquals(comparer, null))
+                TryComparer(data);
 
             BinaryTreeNode<T> n = new BinaryTreeNode<T>(data);
             int result;
