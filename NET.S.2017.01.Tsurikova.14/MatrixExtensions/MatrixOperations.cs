@@ -23,12 +23,18 @@ namespace MatrixExtensions
         /// <returns>new square matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
-        public static SquareMatrix<T> Add<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
+        public static AbstractMatrix<T> Add<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
         {
             if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
             if (lhs.Size != rhs.Size)
                 throw new InvalidOperationException("only matrices with the same size can be added");
 
+            return AddHelper((dynamic)lhs, (dynamic)rhs);
+
+        }
+
+        private static SquareMatrix<T> AddHelper<T>(this AbstractMatrix<T> lhs, AbstractMatrix<T> rhs)
+        {
             SquareMatrix<T> result = new SquareMatrix<T>(lhs.Size);
 
             try
@@ -58,12 +64,8 @@ namespace MatrixExtensions
         /// <returns>new diagonal matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
-        public static DiagonalMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, DiagonalMatrix<T> rhs)
+        private static DiagonalMatrix<T> AddHelper<T>(this DiagonalMatrix<T> lhs, DiagonalMatrix<T> rhs)
         {
-            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
-            if (lhs.Size != rhs.Size)
-                throw new InvalidOperationException("only matrices with the same size can be added");
-
             DiagonalMatrix<T> result = new DiagonalMatrix<T>(lhs.Size);
 
             try
@@ -90,12 +92,8 @@ namespace MatrixExtensions
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
-        public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, SymmetricMatrix<T> rhs)
+        private static SymmetricMatrix<T> AddHelper<T>(this SymmetricMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
-            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
-            if (lhs.Size != rhs.Size)
-                throw new InvalidOperationException("only matrices with the same size can be added");
-
             SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Size);
 
             try
@@ -125,12 +123,8 @@ namespace MatrixExtensions
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
-        public static SymmetricMatrix<T> Add<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
+        private static SymmetricMatrix<T> AddHelper<T>(this DiagonalMatrix<T> lhs, SymmetricMatrix<T> rhs)
         {
-            if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
-            if (lhs.Size != rhs.Size)
-                throw new InvalidOperationException("only matrices with the same size can be added");
-
             SymmetricMatrix<T> result = new SymmetricMatrix<T>(lhs.Size);
 
             try
@@ -160,10 +154,10 @@ namespace MatrixExtensions
         /// <returns>new symmetric matrix</returns>
         /// <exception cref="InvalidOperationException">throws when matrices can't be added</exception>
         /// <exception cref="ArgumentNullException">throws when rhs is null</exception>
-        public static SymmetricMatrix<T> Add<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs)
+        private static SymmetricMatrix<T> AddHelper<T>(this SymmetricMatrix<T> lhs, DiagonalMatrix<T> rhs)
         {
             if (ReferenceEquals(rhs, null)) throw new ArgumentNullException($"{nameof(rhs)} is null");
-            return Add(rhs, lhs);
+            return AddHelper(rhs, lhs);
         }
 
     }
