@@ -28,17 +28,17 @@ namespace BinarySearchTree
         public BinarySearchTree()
         {
             root = null;
-            //comparer = Comparer<T>.Default;
         }
 
         /// <summary>
         /// initializes a new instance of tree with otherComparer
         /// </summary>
         /// <param name="otherComparer">comparer</param>
+        /// <exception cref="ArgumentNullException">throws when comparer is null</exception>
         public BinarySearchTree(IComparer<T> otherComparer)
         {
-            //if (ReferenceEquals(otherComparer, null))
-            //    otherComparer = Comparer<T>.Default;
+            if (ReferenceEquals(otherComparer, null))
+                throw new ArgumentNullException($"{nameof(otherComparer)} is null");
             root = null;
             comparer = otherComparer;
         }
@@ -47,10 +47,11 @@ namespace BinarySearchTree
         /// initializes a new instance of tree with otherComparer
         /// </summary>
         /// <param name="otherComparer">comparer</param>
+        /// <exception cref="ArgumentNullException">throws when comparer is null</exception>
         public BinarySearchTree(Comparison<T> otherComparer)
         {
-            //if (ReferenceEquals(otherComparer, null))
-            //    otherComparer = Comparer<T>.Default.Compare;
+            if (ReferenceEquals(otherComparer, null))
+                throw new ArgumentNullException($"{nameof(otherComparer)} is null");
             root = null;
             comparer = Comparer<T>.Create(otherComparer);
         }
