@@ -74,10 +74,12 @@ namespace Matrix
         {
             get
             {
+                BasicCheckPosition(i, j);
                 return GetElement(i, j);
             }
             set
             {
+                BasicCheckPosition(i, j);
                 T old = GetElement(i, j);
                 SetElement(i, j, value);
                 OnChangeElement(new ChangeElementEventArgs<T>(i, j, old, value));
