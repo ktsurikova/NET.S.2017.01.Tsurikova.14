@@ -28,6 +28,10 @@ namespace BinarySearchTree
         public BinarySearchTree()
         {
             root = null;
+            if (typeof(IComparable<T>).IsAssignableFrom(typeof(T)) ||
+                typeof(IComparable).IsAssignableFrom(typeof(T)))
+                comparer = Comparer<T>.Default;
+            else throw new ArgumentException("type doesn't implement interface IComparable or IComparable<T>");
         }
 
         /// <summary>
@@ -83,13 +87,6 @@ namespace BinarySearchTree
             return false;
         }
 
-        private void TryComparer(T item)
-        {
-            if (item is IComparable<T> || item is IComparable)
-                comparer = Comparer<T>.Default;
-            else throw new ArgumentException($"there is no comparer");
-        }
-
         #region Add
 
         /// <summary>
@@ -100,9 +97,6 @@ namespace BinarySearchTree
         public void Add(T data)
         {
             if (ReferenceEquals(data, null)) throw new ArgumentNullException($"{nameof(data)} is null");
-
-            if (ReferenceEquals(comparer, null))
-                TryComparer(data);
 
             BinaryTreeNode<T> n = new BinaryTreeNode<T>(data);
             int result;

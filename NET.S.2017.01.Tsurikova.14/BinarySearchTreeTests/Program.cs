@@ -1,7 +1,9 @@
 ﻿using BinarySearchTree;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Logic;
@@ -71,12 +73,25 @@ namespace BinarySearchTreeTests
             Point p3 = new Point(3, 3);
             Point p4 = new Point(4, 4);
             Point p5 = new Point(5, 5);
-            BinarySearchTree<Point> tree = new BinarySearchTree<Point>(new PointXComparer()) { p5, p2, p1, p4, p3, p5, p3 };
+            BinarySearchTree<Point> tree = new BinarySearchTree<Point>() { p5, p2, p1, p4, p3, p5, p3 };
             foreach (var item in tree.InOrder)
             {
                 Console.WriteLine(item);
             }
             Console.WriteLine(tree.Count);
+
+            ////TypeFilter tp = new TypeFilter();
+
+            //Type t = typeof(PointXComparer).GetInterface("System.Collections.Generic.IComparer`1[BinarySearchTreeTests.Point]", true);
+            //int k = 9;
+
+            //if (typeof(IComparer<Point>).IsAssignableFrom(typeof(PointXComparer)) )
+            //    Console.WriteLine("Yey");
+
+            //foreach (Type VARIABLE in typeof(PointXComparer).GetInterfaces())
+            //{
+            //    Console.WriteLine(VARIABLE);
+            //}
 
             Console.ReadLine();
         }
